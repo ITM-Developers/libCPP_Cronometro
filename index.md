@@ -1,37 +1,52 @@
 ## Welcome to GitHub Pages
+Si deseas medir el tiempo transcurrido entre dos puntos distintos en tu programa esta librería es para ti. Es muy simple de usar a continuación te muestro un ejemplo sencillo con el cual te puedes dar una idea de lo fácil que es usarla:
+```cpp
+#include <iostream>
+#include "Cronometro.h"
 
-You can use the [editor on GitHub](https://github.com/ITM-Developers/libCPP_Cronometro/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+using namespace std;
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+int main()
+{
+    Cronometro cronometro;
+    cronometro.start();
+    for(size_t i=0; i < 1000000000; i++)
+    {
+        // Aqui se hacen alguna operacion....
+    }
+    cronometro.stop();
+    cout << "Seconds Elapsed: " << cronometro.getSecondsElapsed();
+    return 0;
+}
+```
+Así de simple es usar la clase, continua leyendo para una descripción más detallada de cada método.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Paso 1: Importar Cabeceras
+El primer paso para empezar a usar la librería es importar las cabeceras, basta con copiar los archivos de código fuente en tu proyecto y agregarlos mediante tu IDE, después incluye los headers con la directiva include como con cualquier clase.
+```cpp
+#include "Cronometro.h"
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+##  Paso 2: Instanciar
+El siguiente paso es crear una instancia de la clase, así es simplemente debes declarar un objeto de la clase como se muestra a continuación:
+```cpp
+Cronometro cronometro;
+```
 
-### Jekyll Themes
+## Método start()
+Este método te permite iniciar el cronometro, cuando llamamos a este método la clase empieza a contar el tiempo hasta que se llame al método stop()
+```cpp
+cronometro.start();
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ITM-Developers/libCPP_Cronometro/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Método stop()
+Este método detiene el contador de tiempo.
+```cpp
+cronometro.stop();
+```
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Método getSecondsElapsed()
+Podemos llamar a este método para saber el tiempo que transcurrió entre la llamada a start() y stop(). El valor devuelto es un double que representa a los segundos transcurridos.
+```cpp
+cronometro.getSecondsElapsed();
+```
