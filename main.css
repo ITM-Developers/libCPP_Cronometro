@@ -1,0 +1,45 @@
+#cronometro {
+    padding: 10px;
+    border: 5px #33dfefb7 double;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#pantalla {
+    background: black;
+    color:  greenyellow;
+    width: 90%;
+    border: 1px solid black;
+    font: normal 1em digital_dream, europa, arial;
+    font-size: 60px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#botones{
+    margin-top: 20px;
+    width: 70%;
+}
+
+#cronometro [type=button] {
+    margin: 4px;
+    font: normal 9pt arial;
+    width: 70px;
+}
+
+.boton{
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    margin: 5px;
+    display: none;
+}
